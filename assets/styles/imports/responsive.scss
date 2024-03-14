@@ -1,7 +1,12 @@
 @media (max-width: 1113px) {
-    .portfolio {
-        .projects {
+
+    .portfolio,
+    .feat {
+
+        .projects,
+        .featured {
             width: 100%;
+
             .item {
                 padding: 1em !important;
 
@@ -22,6 +27,7 @@
 
     .home {
         padding-top: 3em !important;
+
         h2 {
             max-width: 70% !important;
         }
@@ -29,10 +35,15 @@
 }
 
 @media (max-width: 955px) {
-    .portfolio {
-        .projects {
+
+    .portfolio,
+    .feat {
+
+        .projects,
+        .featured {
             grid-template-columns: 1fr 1fr !important;
             padding-bottom: 3em !important;
+
             .item {
                 width: 100% !important;
                 min-width: unset !important;
@@ -43,7 +54,7 @@
     .home {
         padding-top: 3em !important;
 
-        
+
     }
 }
 
@@ -53,19 +64,24 @@
         --margin: 1em !important;
     }
 
-    .portfolio {
+    .portfolio,
+    .feat {
         .header {
             padding-left: 0em !important;
             text-align: center !important;
             align-items: center !important;
+
             h2 {
                 font-size: 30px !important;
             }
         }
-        .projects {
-            grid-template-columns: 1fr!important;
+
+        .projects,
+        .featured {
+            grid-template-columns: 1fr !important;
             padding: 0 !important;
             padding-bottom: 5em !important;
+
             .item {
                 width: 100% !important;
                 min-width: unset !important;
@@ -79,7 +95,9 @@
 }
 
 @media (max-width: 530px) {
-    .portfolio {
+
+    .portfolio,
+    .feat {
         margin-top: 3em !important;
 
         .header {
@@ -87,6 +105,11 @@
                 font-size: 23px !important;
             }
         }
+    }
+
+
+    .feat {
+        margin-block: 10em !important;
     }
 }
 
@@ -98,8 +121,8 @@
             &:before {
                 background-size: 300%;
             }
-            
-            .app--nav{
+
+            .app--nav {
                 flex-direction: column !important;
                 padding: 1.5em 3em;
 
@@ -117,7 +140,7 @@
                 }
 
                 .screen {
-                
+
                     h2 {
                         font-size: 20px !important;
                         max-width: 80% !important;
@@ -125,7 +148,7 @@
                 }
             }
 
-            
+
         }
     }
 }

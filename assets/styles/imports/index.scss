@@ -162,10 +162,14 @@ body {
 
                 .brand {
                     &-text {
+                        color: unset;
                         font-size: 15px;
                         text-decoration: none;
-                        color: var(--fg-color);
                         opacity: 0.7;
+                        background-color: var(--fg-color-4);
+                        border-radius: 5px;
+                        padding: 0.5em 1em;
+                        transform: translateX(-50%);
                     }
                 }
 
@@ -245,7 +249,7 @@ body {
                     &::-webkit-scrollbar-thumb {
                         background-color: var(--fg-color-2);
                         outline: 1px solid var(--fg-color-3);
-                        border-radius: 3px;
+                        border-radius: 1px;
                     }
 
                     .screen {
@@ -269,11 +273,14 @@ body {
                             margin-bottom: 0.5em;
                             padding: 3px;
                             border: 1px solid var(--fg-color-2);
+                            position: relative;
 
                             img {
                                 width: 100%;
                                 border-radius: 100%;
                             }
+
+                            
                         }
 
                         p {
@@ -290,7 +297,11 @@ body {
                             font-size: 35px;
                             opacity: 0.87;
                             max-width: 50%;
-                            font-weight: 300;
+                            font-weight: 300 !important;
+
+                            & span {
+                                font-family: "Poppins", sans-serif;
+                            }
                         }
 
                         button {
@@ -341,6 +352,7 @@ body {
                                 padding: 0 2em;
                                 gap: var(--gap);
                                 grid-template-columns: 2fr 1fr 2fr;
+
                                 .flexx {
                                     display: flex;
                                     grid-template-columns: 1fr;
@@ -348,7 +360,7 @@ body {
                                     width: 100%;
                                     gap: var(--gap);
 
-                                    
+
                                 }
 
                                 .item {
@@ -357,8 +369,9 @@ body {
 
                             }
 
-                            
+
                         }
+
                         &.feat {
                             height: auto !important;
                             margin-top: 10em;
@@ -382,7 +395,7 @@ body {
                                     padding-left: 2px !important;
                                 }
                             }
-                        
+
                             .featured {
                                 // opacity: 1 !important;
                                 // width: 100%;
@@ -407,17 +420,17 @@ body {
                                     width: 100%;
                                     gap: var(--gap);
 
-                                    
+
                                 }
-                        
+
                                 .item {
                                     @extend .projects-item;
                                     padding: 0.5em !important;
                                     max-width: 400px;
-                                    width:  100%;
+                                    width: 100%;
                                     height: auto;
 
-                        
+
                                     .image {
                                         height: 100px;
                                         width: 100%;
@@ -427,7 +440,7 @@ body {
                                         align-items: end;
                                         overflow: hidden;
                                         justify-content: center;
-                        
+
                                         img {
                                             width: 100%;
                                             height: 100%;
@@ -435,13 +448,13 @@ body {
                                             object-fit: cover;
                                         }
                                     }
-                        
+
                                     &:hover {
                                         img {
                                             transform: scale(1.1);
                                         }
                                     }
-                        
+
                                     a {
                                         all: unset;
                                     }
@@ -451,20 +464,20 @@ body {
                                         flex-direction: column;
                                         justify-content: space-between;
                                     }
-                        
+
                                     .description {
                                         display: flex;
                                         flex-direction: column;
                                         padding: 0.5em;
                                         width: 100%;
                                         text-align: left;
-                        
+
                                         p {
                                             width: 100% !important;
                                             max-width: unset !important;
                                         }
                                     }
-                        
+
                                     .topics {
                                         padding: 0.5em;
                                         padding-top: 0;
@@ -474,7 +487,7 @@ body {
                                         width: 100%;
                                         flex-wrap: wrap;
                                         margin-bottom: auto;
-                        
+
                                         span {
                                             padding: .2em 0;
                                             border-radius: 4px;
@@ -490,7 +503,7 @@ body {
                                             position: relative;
                                             margin-right: 0.5em;
                                             font-size: x-small;
-                        
+
                                             &:not(:last-child):after {
                                                 content: "•";
                                                 margin-left: 1em;
@@ -498,16 +511,16 @@ body {
                                                 position: absolute;
                                             }
                                         }
-                        
+
                                     }
-                        
+
                                     .actions {
                                         padding: 0.5em;
                                         display: grid;
                                         grid-template-columns: 3fr 1fr;
                                         margin-top: auto;
                                         gap: 0.5em;
-                        
+
                                         .btn {
                                             border: 1px solid var(--accent);
                                             padding: 0.5em 1em;
@@ -516,26 +529,26 @@ body {
                                             transition: 0.4s !important;
                                             font-size: small;
                                             cursor: pointer;
-                        
+
                                             &.secondary-action {
                                                 background: var(--fg-color-4);
                                                 border: none !important;
                                                 font-size: large;
                                                 border-radius: 6px;
                                                 color: white;
-                        
+
                                                 &:hover {
-                        
+
                                                     color: var(--accent);
                                                 }
                                             }
                                         }
                                     }
-                        
+
                                 }
                             }
                         }
-                        
+
                     }
                 }
             }

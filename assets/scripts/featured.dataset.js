@@ -22,5 +22,15 @@ FeaturedGenerator.addFeatured({
 
 })
 
+FeaturedGenerator.addFeatured({
+    image: "/assets/images/featured/streekapp.png",
+    title: "Ventt.io",
+    description: "Ventt.io is an app used for pairing two strangers to talk about thier challenges",
+    topics: ["Health", "Friendliness", "Happiness",  "Companion", "ReactJS", "Vite", "Capacitor"],
+    github: "null",
+    preview: "https://ventt-io.netlify.app",
+
+})
+
 const featured = FeaturedGenerator.getDataset();
 export default featured;

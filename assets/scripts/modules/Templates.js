@@ -46,7 +46,7 @@ const Templates = {
                    ${topics.map(topic => `<span>${topic}</span>`).join('')}
                 </div>
                 <div class="actions">
-                    ${preview && `<a href="${preview}" class="btn" target="_blank">Preview Project <i class="la la-external-link-alt"></i></a>` || ""}
+                    ${preview && `<a href="${preview}" class="btn" target="_blank">Preview <i class="la la-eye"></i></a>` || ""}
                     ${github && `<a href="${github}" class="btn secondary-action" target="_blank"><i class="la la-git"></i></a>` || ""}
                 </div>
                   </div>

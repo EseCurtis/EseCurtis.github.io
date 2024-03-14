@@ -2,12 +2,15 @@ import { ToNode, chunkArray } from "./Helpers.js";
 
 function Masonry(dataset, template, elementQuery = "body", masonify = true) {
 
+    document.querySelector(elementQuery).innerHTML = "";
+    
     if (!masonify) {
         dataset.forEach(async (data) => {
             const projectDom = await template(data);
             document.querySelector(elementQuery).appendChild(ToNode(projectDom))
         })
     } else {
+
         // Split the dataset into sets of three.
         const chunkedDataset = chunkArray(dataset, 3);
 
