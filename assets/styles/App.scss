@@ -4,7 +4,7 @@
 $fg_color: #242424;
 $bg_color: #ffffff;
 $bg_color_2: #eee;
-$accent: #0c6dec;
+$accent: #0cec62;
 
 :root {
     --fg-color: #242424;
@@ -71,3 +71,4 @@ h6,
 
 @import url(./imports/index.css);
 @import url(./imports/responsive.css);
+@import url(./imports/featured.css);

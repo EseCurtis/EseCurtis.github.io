@@ -1,3 +1,119 @@
+.projects-item {
+    width: 100%;
+    background: var(--bg-color-2);
+    border-radius: 5px;
+    border: 1px solid var(--fg-color-2);
+    color: var(--fg-color);
+    background: var(--bg-color-2);
+    padding: 1.7em 2em;
+    //border-radius: 10px;
+    text-align: left;
+    transition: 0.4s ease-in-out;
+    opacity: 0.7;
+
+    &:hover {
+
+        opacity: 1;
+    }
+
+    .countributors {
+        display: flex;
+        flex-direction: row;
+        margin: 0.5em 0;
+        flex-wrap: wrap;
+        max-width: 100px;
+
+        span {
+            width: 20px;
+            height: 20px;
+            background: black;
+            border: 2px solid var(--fg-color-2);
+            border-radius: 100%;
+            margin-right: -0%;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .title {
+        margin-top: 0.5em;
+        display: flex;
+        column-gap: 4px;
+        font-size: 19px;
+        margin-bottom: 1em;
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 200px;
+
+
+        h3 {
+            color: var(--fg-color);
+            border: 1px solid var(--fg-color-4);
+            //background-color: var(--fg-color-4);
+            width: auto;
+            margin-right: auto;
+            border-radius: 5px;
+            padding: 0 0.5em;
+            font-size: 19px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+
+            a {
+                text-decoration: none;
+                color: var(--fg-color);
+            }
+
+            i {
+                color: var(--accent);
+            }
+        }
+    }
+
+    .description {
+        display: flex;
+        align-items: flex-start;
+        max-width: unset;
+        margin: 1.5em 0em;
+        margin-top: 0.5em;
+        font-weight: 200;
+        font-size: 13px;
+    }
+
+    .topics {
+        display: flex;
+        align-items: center;
+        gap: 0.4em;
+
+        span {
+            padding: .2em 0;
+            border-radius: 4px;
+            color: var(--fg-color);
+            font-size: 14px;
+            text-transform: capitalize;
+            font-style: italic;
+            white-space: nowrap;
+            background: var(--fg-color-4);
+            width: auto;
+            border-radius: 5px;
+            padding: 0 0.5em;
+            position: relative;
+            margin-right: 0.5em;
+
+            &:not(:last-child):after {
+                content: "•";
+                margin-left: 1em;
+                opacity: 0.7;
+                position: absolute;
+            }
+        }
+    }
+}
+
 body {
     transition: opacity 0.5s ease-in-out;
     display: flex;
@@ -135,7 +251,7 @@ body {
                     .screen {
                         display: flex;
                         justify-content: center;
-                        height: 100%;
+                        min-height: 100%;
                         scroll-snap-align: start;
                         flex-direction: column;
                         align-items: center;
@@ -205,7 +321,7 @@ body {
                                 align-items: flex-start;
                                 width: 100%;
                                 padding-left: calc(var(--margin)/2);
-                                
+
                                 * {
                                     margin: 0;
                                     padding: 0 !important;
@@ -219,12 +335,70 @@ body {
 
 
                             .projects {
-                                --gap:1em;
+                                --gap: 1em;
                                 margin-top: 5em;
                                 display: grid;
                                 padding: 0 2em;
                                 gap: var(--gap);
                                 grid-template-columns: 2fr 1fr 2fr;
+                                .flexx {
+                                    display: flex;
+                                    grid-template-columns: 1fr;
+                                    flex-direction: column;
+                                    width: 100%;
+                                    gap: var(--gap);
+
+                                    
+                                }
+
+                                .item {
+                                    @extend .projects-item;
+                                }
+
+                            }
+
+                            
+                        }
+                        &.feat {
+                            height: auto !important;
+                            margin-top: 10em;
+                            text-align: left;
+
+                            .header {
+                                display: flex;
+                                flex-direction: column;
+                                text-align: left;
+                                align-items: flex-start;
+                                width: 100%;
+                                padding-left: calc(var(--margin)/2);
+
+                                * {
+                                    margin: 0;
+                                    padding: 0 !important;
+                                }
+
+                                small {
+                                    opacity: 0.7;
+                                    padding-left: 2px !important;
+                                }
+                            }
+                        
+                            .featured {
+                                // opacity: 1 !important;
+                                // width: 100%;
+                                // padding-top: 3em;
+                                // display: grid;
+                                // grid-template-columns: 1fr 1fr 1fr;
+                                // place-content:center;
+                                // gap: 1em;
+                                // height: auto;
+                                // padding-left: calc(var(--margin)/2);
+                                --gap: 1em;
+                                margin-top: 5em;
+                                display: grid;
+                                padding: 0 2em;
+                                gap: var(--gap);
+                                grid-template-columns: 1fr 1fr 1fr;
 
                                 .flexx {
                                     display: flex;
@@ -233,124 +407,135 @@ body {
                                     width: 100%;
                                     gap: var(--gap);
 
-                                    .item {
+                                    
+                                }
+                        
+                                .item {
+                                    @extend .projects-item;
+                                    padding: 0.5em !important;
+                                    max-width: 400px;
+                                    width:  100%;
+                                    height: auto;
+
+                        
+                                    .image {
+                                        height: 100px;
                                         width: 100%;
-                                        background: var(--bg-color-2);
-                                        border-radius: 5px;
-                                        border: 1px solid var(--fg-color-2);
-                                        color: var(--fg-color);
-                                        background: var(--bg-color-2);
-                                        padding: 1.7em 2em;
-                                        //border-radius: 10px;
-                                        text-align: left;
-                                        transition: 0.4s ease-in-out;
-                                        opacity: 0.7;
-    
-                                        &:hover {
-                                            
-                                            opacity: 1;
+                                        border-radius: 2px !important;
+                                        overflow: hidden;
+                                        display: flex;
+                                        align-items: end;
+                                        overflow: hidden;
+                                        justify-content: center;
+                        
+                                        img {
+                                            width: 100%;
+                                            height: 100%;
+                                            transition: 0.4s;
+                                            object-fit: cover;
                                         }
-    
-                                        .countributors {
-                                            display: flex;
-                                            flex-direction: row;
-                                            margin: 0.5em 0;
-                                            flex-wrap: wrap;
-                                            max-width: 100px;
-    
-                                            span {
-                                                width: 20px;
-                                                height: 20px;
-                                                background: black;
-                                                border: 2px solid var(--fg-color-2);
-                                                border-radius: 100%;
-                                                margin-right: -0%;
-                                                overflow: hidden;
-    
-                                                img {
-                                                    width: 100%;
-                                                }
+                                    }
+                        
+                                    &:hover {
+                                        img {
+                                            transform: scale(1.1);
+                                        }
+                                    }
+                        
+                                    a {
+                                        all: unset;
+                                    }
+
+                                    .info {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;
+                                    }
+                        
+                                    .description {
+                                        display: flex;
+                                        flex-direction: column;
+                                        padding: 0.5em;
+                                        width: 100%;
+                                        text-align: left;
+                        
+                                        p {
+                                            width: 100% !important;
+                                            max-width: unset !important;
+                                        }
+                                    }
+                        
+                                    .topics {
+                                        padding: 0.5em;
+                                        padding-top: 0;
+                                        margin: 0 !important;
+                                        padding-bottom: 1em;
+                                        gap: 0.4em;
+                                        width: 100%;
+                                        flex-wrap: wrap;
+                                        margin-bottom: auto;
+                        
+                                        span {
+                                            padding: .2em 0;
+                                            border-radius: 4px;
+                                            color: var(--fg-color);
+                                            font-size: 14px;
+                                            text-transform: capitalize;
+                                            font-style: italic;
+                                            white-space: nowrap;
+                                            background: var(--fg-color-4);
+                                            width: auto;
+                                            border-radius: 5px;
+                                            padding: 0 0.5em;
+                                            position: relative;
+                                            margin-right: 0.5em;
+                                            font-size: x-small;
+                        
+                                            &:not(:last-child):after {
+                                                content: "•";
+                                                margin-left: 1em;
+                                                opacity: 0.7;
+                                                position: absolute;
                                             }
                                         }
-    
-                                        .title {
-                                            margin-top: 0.5em;
-                                            display: flex;
-                                            column-gap: 4px;
-                                            font-size: 19px;
-                                            margin-bottom: 1em;
-                                            white-space: wrap;
-                                            overflow: hidden;
-                                            text-overflow: ellipsis;
-                                            width: 200px;
-
-    
-                                            h3 {
-                                                color: var(--fg-color);
-                                                border: 1px solid var(--fg-color-4);
-                                                //background-color: var(--fg-color-4);
-                                                width: auto;
-                                                margin-right: auto;
-                                                border-radius: 5px;
-                                                padding: 0 0.5em;
-                                                font-size: 19px;
-                                                white-space: nowrap;
-                                                display: flex;
-                                                align-items: center;
-    
-                                                a {
-                                                    text-decoration: none;
-                                                    color: var(--fg-color);
-                                                }
-
-                                                i {
+                        
+                                    }
+                        
+                                    .actions {
+                                        padding: 0.5em;
+                                        display: grid;
+                                        grid-template-columns: 3fr 1fr;
+                                        margin-top: auto;
+                                        gap: 0.5em;
+                        
+                                        .btn {
+                                            border: 1px solid var(--accent);
+                                            padding: 0.5em 1em;
+                                            border-radius: 3px;
+                                            text-align: center;
+                                            transition: 0.4s !important;
+                                            font-size: small;
+                                            cursor: pointer;
+                        
+                                            &.secondary-action {
+                                                background: var(--fg-color-4);
+                                                border: none !important;
+                                                font-size: large;
+                                                border-radius: 6px;
+                                                color: white;
+                        
+                                                &:hover {
+                        
                                                     color: var(--accent);
                                                 }
                                             }
                                         }
-    
-                                        .description {
-                                            display: flex;
-                                            align-items: flex-start;
-                                            max-width: unset;
-                                            margin: 1.5em 0em;
-                                            margin-top: 0.5em;
-                                            font-weight: 200;
-                                            font-size: 13px;
-                                        }
-    
-                                        .topics {
-                                            display: flex;
-                                            align-items: center;
-                                            gap: 0.4em;
-    
-                                            span {
-                                                padding: .2em 0;
-                                                border-radius: 4px;
-                                                color: var(--fg-color);
-                                                font-size: 14px;
-                                                text-transform: capitalize;
-                                                font-style: italic;
-                                                white-space: nowrap;
-                                                background:  var(--fg-color-4);
-                                                width: auto;
-                                                border-radius: 5px;
-                                                padding: 0 0.5em;
-                                                position: relative;
-                                                margin-right: 0.5em;
-    
-                                                &:not(:last-child):after {
-                                                    content: "•";
-                                                    margin-left: 1em;
-                                                    opacity: 0.7;
-                                                    position: absolute;
-                                                }
-                                            }
-                                        }
                                     }
+                        
                                 }
                             }
                         }
+                        
                     }
                 }
             }
