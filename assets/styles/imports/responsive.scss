@@ -1,0 +1,131 @@
+@media (max-width: 1113px) {
+    .portfolio {
+        .projects {
+            width: 100%;
+            .item {
+                padding: 1em !important;
+
+                .title {
+                    a {
+                        font-size: 13px;
+                    }
+                }
+
+                .topics {
+                    span {
+                        font-size: 12px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .home {
+        padding-top: 3em !important;
+        h2 {
+            max-width: 70% !important;
+        }
+    }
+}
+
+@media (max-width: 955px) {
+    .portfolio {
+        .projects {
+            grid-template-columns: 1fr 1fr !important;
+            padding-bottom: 3em !important;
+            .item {
+                width: 100% !important;
+                min-width: unset !important;
+            }
+        }
+    }
+
+    .home {
+        padding-top: 3em !important;
+
+        
+    }
+}
+
+
+@media (max-width: 705px) {
+    #root {
+        --margin: 1em !important;
+    }
+
+    .portfolio {
+        .header {
+            padding-left: 0em !important;
+            text-align: center !important;
+            align-items: center !important;
+            h2 {
+                font-size: 30px !important;
+            }
+        }
+        .projects {
+            grid-template-columns: 1fr!important;
+            padding: 0 !important;
+            padding-bottom: 5em !important;
+            .item {
+                width: 100% !important;
+                min-width: unset !important;
+            }
+        }
+    }
+
+    .home {
+        padding-top: 3em !important;
+    }
+}
+
+@media (max-width: 530px) {
+    .portfolio {
+        margin-top: 3em !important;
+
+        .header {
+            h2 {
+                font-size: 23px !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        #root {
+            --margin: 1em !important;
+
+            &:before {
+                background-size: 300%;
+            }
+            
+            .app--nav{
+                flex-direction: column !important;
+                padding: 1.5em 3em;
+
+                .brand {
+                    padding: 0.5em !important;
+                    margin-bottom: 0.5em;
+                }
+            }
+
+            .app--slides {
+                &::-webkit-scrollbar {
+                    display: none !important;
+                    height: 0px !important;
+                    width: 0px !important;
+                }
+
+                .screen {
+                
+                    h2 {
+                        font-size: 20px !important;
+                        max-width: 80% !important;
+                    }
+                }
+            }
+
+            
+        }
+    }
+}

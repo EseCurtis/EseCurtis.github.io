@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700&display=swap");
+
+$fg_color: #242424;
+$bg_color: #ffffff;
+$bg_color_2: #eee;
+$accent: #0c6dec;
+
+:root {
+    --fg-color: #242424;
+    --fg-color-2: #{transparentize($color: $fg_color, $amount: 0.7)};
+    --fg-color-3: #{transparentize($color: $fg_color, $amount: 0.3)};
+    --fg-color-4: #{transparentize($color: $fg_color, $amount: 0.07)};
+    --bg-color: #ffffff;
+    --bg-color-2: #{$bg_color_2};
+    --accent: #{$accent};
+    --accent-opaque: #{transparentize($color: $accent, $amount: 0.7)};
+}
+
+@media (prefers-color-scheme: dark) {
+    $fg_color: #ffffff;
+    $bg_color: #242424;
+
+    :root {
+        --bg-color: #111013;
+        --bg-color-2: #141416;
+        --fg-color: #ffffff;
+        --fg-color-2: #{transparentize($color: $fg_color, $amount: 0.7)};
+        --fg-color-3: #{transparentize($color: $fg_color, $amount: 0.3)};
+    }
+
+    #root {
+        &:before {
+            filter: unset !important;
+        }
+    }
+}
+
+* {
+    box-sizing: border-box !important;
+    margin: 0;
+    padding: 0;
+    font-family: "Cabinet Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.poppins {
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    
+    color-scheme: light dark;
+    color: var(--fg-color);
+    background-color: var(--bg-color);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+@import url(./imports/index.css);
+@import url(./imports/responsive.css);

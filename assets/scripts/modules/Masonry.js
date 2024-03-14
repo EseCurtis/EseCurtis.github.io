@@ -1,0 +1,25 @@
+import { ToNode, chunkArray } from "./Helpers.js";
+
+function Masonry(dataset, template, elementQuery = "body") {
+    // Split the dataset into sets of three.
+    const chunkedDataset = chunkArray(dataset, 3);
+    console.log(chunkedDataset)
+
+    // Loop through each set of data.
+    chunkedDataset.forEach(async (data) => {
+        const flexContainer = document.createElement("div");
+        flexContainer.className = "flexx";
+
+        // Loop through the projects in the current set.
+        data.forEach(async (project) => {
+            const projectDOM = await template(project);
+            flexContainer.appendChild(ToNode(projectDOM));
+        });
+
+        // Append the flex container to the specified element.
+        document.querySelector(elementQuery).appendChild(flexContainer);
+        //console.log(flexContainer)
+    });
+}
+
+export default Masonry;
