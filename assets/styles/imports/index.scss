@@ -18,22 +18,23 @@
 
     .countributors {
         display: flex;
-        flex-direction: row;
         margin: 0.5em 0;
         flex-wrap: wrap;
-        max-width: 100px;
 
         span {
-            width: 20px;
-            height: 20px;
+            width: 40px;
+            height: 40px;
             background: black;
-            border: 2px solid var(--fg-color-2);
+            border: 2px solid var(--accent);
             border-radius: 100%;
             margin-right: -0%;
             overflow: hidden;
+            display: flex;
 
             img {
                 width: 100%;
+                height: 100%;
+                object-fit: cover ;
             }
         }
     }
@@ -47,7 +48,7 @@
         white-space: wrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 200px;
+        width: 100%;
 
 
         h3 {
@@ -370,6 +371,7 @@ body {
                                     grid-template-columns: 1fr;
                                     flex-direction: column;
                                     width: 100%;
+                                    overflow: hidden;
                                     gap: var(--gap);
 
 
@@ -422,8 +424,6 @@ body {
                                     flex-direction: column;
                                     width: 100%;
                                     gap: var(--gap);
-
-
                                 }
 
                                 .item {
@@ -454,7 +454,7 @@ body {
 
                                     &:hover {
                                         img {
-                                            transform: scale(1.1);
+                                            transform: scale(1.02);
                                         }
                                     }
 
@@ -478,6 +478,10 @@ body {
                                         p {
                                             width: 100% !important;
                                             max-width: unset !important;
+                                        }
+
+                                        h4 {
+                                            font-size: large;
                                         }
                                     }
 
@@ -505,7 +509,7 @@ body {
                                             padding: 0 0.5em;
                                             position: relative;
                                             margin-right: 0.5em;
-                                            font-size: x-small;
+                                            font-size: small;
 
                                             &:not(:last-child):after {
                                                 content: "•";
@@ -524,14 +528,23 @@ body {
                                         margin-top: auto;
                                         gap: 0.5em;
 
+                                        &.mono {
+                                            grid-template-columns: 1fr !important;
+                                        }
+
                                         .btn {
-                                            border: 1px solid var(--accent);
+                                            background: var(--accent);
                                             padding: 0.5em 1em;
                                             border-radius: 3px;
                                             text-align: center;
                                             transition: 0.4s !important;
                                             font-size: small;
                                             cursor: pointer;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            gap: 0.5em;
+                                            color: black;
 
                                             &.secondary-action {
                                                 background: var(--fg-color-4);

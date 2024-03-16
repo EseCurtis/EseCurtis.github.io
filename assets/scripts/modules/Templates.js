@@ -13,10 +13,10 @@ const Templates = {
                 <!--<i class="--sub">${name}</i>-->
                 <h3><a href="${html_url}">${full_name.replace("EseCurtis", "")}</a>&nbsp;<i class="las la-link"></i></h3>
                 <div class="countributors" style="width: calc(${contributorsContainerWidth}px);">
-                ${contributors.slice(0, 3).map(contributor => `
-                    <span onclick-disabled="location.assign('${contributor.html_url}')" data-id="${contributor.id}" data-meta='${"JSON.stringify(contributor)"}'>
+                ${contributors && contributors.slice(0, 3).map(contributor => `
+                    <div onclick-disabled="location.assign('${contributor.html_url}')" data-id="${contributor.id}" data-meta='${"JSON.stringify(contributor)"}'>
                         <img src="${contributor.avatar_url}" alt="${contributor.login}" title="${contributor.login}">
-                    </span>
+                    </div>
                 `).join('')}
             </div>
             </div>
@@ -45,7 +45,7 @@ const Templates = {
                 <div class="topics">
                    ${topics.map(topic => `<span>${topic}</span>`).join('')}
                 </div>
-                <div class="actions">
+                <div class="actions ${(!github || !preview) && "mono"}">
                     ${preview && `<a href="${preview}" class="btn" target="_blank">Preview <i class="la la-eye"></i></a>` || ""}
                     ${github && `<a href="${github}" class="btn secondary-action" target="_blank"><i class="la la-git"></i></a>` || ""}
                 </div>

@@ -10,14 +10,19 @@ const App = async (projects) => {
 
 
 document.body.onload = () => {
-    // FetchProjects()
-    //     .then(projects => {
-    //         App(projects)
-    //     })
-    //     .catch(error => {
-    //         console.error(error)
-    //         return _e("#projects").style.opacity = 1
-    //     })
+    const storedProjects = JSON.parse(localStorage?.getItem("projects") || "[]");
+
+    App(storedProjects);
+
+    FetchProjects()
+        .then(projects => {
+            localStorage.setItem("projects", JSON.stringify(projects));
+            App(projects)
+        })
+        .catch(error => {
+            console.error(error)
+            return _e("#projects").style.opacity = 1
+        })
 
 
     Masonry(featured, Templates.featured, "#featured");
