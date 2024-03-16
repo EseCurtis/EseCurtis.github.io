@@ -1,26 +1,43 @@
 import FetchContributors from "./FetchContributors.js"
 
 const Templates = {
-    project: async ({ description, topics, contributors_url, owner, license, is_template, full_name, name, allow_forking, html_url }) => {
-        const contributors = await FetchContributors(contributors_url)
+    project: async ({ id, description, topics, contributors_url, owner, license, is_template, full_name, name, allow_forking, html_url }) => {
+        let contributors = await FetchContributors(contributors_url);
+
+        if (!contributors.message > 0) {
+            localStorage?.setItem(`repo_${id}_contributors`, JSON.stringify(contributors));
+        } else {
+            contributors = JSON.parse(localStorage?.getItem(`repo_${id}_contributors`)) || [];
+        }
+
         const contributorsItemWidth = 20
-        const contributorsContainerWidth = (contributorsItemWidth * contributors.length) + (4 * contributors.length)
+        const maxDisplayNameLength = 20;
+        const contributorsContainerWidth = (contributorsItemWidth * contributors?.length) + (4 * contributors.length)
+
+        let displayName = full_name.replace("EseCurtis/", ` &nbsp;`);
+        let shortDisplayName = displayName.split("").splice(0, maxDisplayNameLength).join("");
+
+        if((full_name.replace("EseCurtis", ``).length > maxDisplayNameLength)) {
+            shortDisplayName += "...";
+        }
 
         return `
         <div class="item">
-            
             <div class="title">
                 <!--<i class="--sub">${name}</i>-->
-                <h3><a href="${html_url}">${full_name.replace("EseCurtis", "")}</a>&nbsp;<i class="las la-link"></i></h3>
-                <div class="countributors" style="width: calc(${contributorsContainerWidth}px);">
-                ${contributors && contributors.slice(0, 3).map(contributor => `
-                    <div onclick-disabled="location.assign('${contributor.html_url}')" data-id="${contributor.id}" data-meta='${"JSON.stringify(contributor)"}'>
-                        <img src="${contributor.avatar_url}" alt="${contributor.login}" title="${contributor.login}">
+                <h3 onclick="window.open('${html_url}', '_blank')"><a href="${html_url}" target="_blank"><i class="la la-git"></i>&nbsp;&nbsp; • ${shortDisplayName}</a>&nbsp;<i class="las la-external-link-alt"></i></h3>
+                <div class="countributors" stylex="width: calc(${contributorsContainerWidth}px);">
+                ${(contributors?.slice) && contributors.slice(0, 3).map(contributor => `
+                    <div class="contributor-item" onclick-disabled="location.assign('${contributor.html_url}')" data-id="${contributor.id}" data-meta='${"JSON.stringify(contributor)"}'>
+                        <div class="item-main">
+                            <img src="${contributor.avatar_url}" alt="${contributor.login}" title="${contributor.login}">
+                        </div>
                     </div>
-                `).join('')}
+                `).join('') || ""}
             </div>
             </div>
             <p class="description">
+                ${displayName}:
                 ${description || "No Description"}
             </p>
             

@@ -13,11 +13,14 @@ function Masonry(dataset, template, elementQuery = "body", masonify = true) {
 
         // Split the dataset into sets of three.
         const chunkedDataset = chunkArray(dataset, 3);
+        const orderedDataset = [];
 
-        console.log(chunkedDataset)
+        orderedDataset.push(chunkedDataset[0])
+        orderedDataset.push(chunkedDataset[2])
+        orderedDataset.push(chunkedDataset[1])
 
         // Loop through each set of data.
-        chunkedDataset.forEach(async (data) => {
+        orderedDataset.forEach(async (data) => {
             const flexContainer = document.createElement("div");
             flexContainer.className = "flexx";
 

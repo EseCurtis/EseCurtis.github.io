@@ -8,33 +8,50 @@
     padding: 1.7em 2em;
     //border-radius: 10px;
     text-align: left;
-    transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out, background 0.1s;
     opacity: 0.7;
+    animation: morph-in 0.4s;
 
     &:hover {
-
+        background: var(--accent-opaque-2);
+        border-color: var(--accent-opaque);
         opacity: 1;
     }
 
     .countributors {
         display: flex;
         margin: 0.5em 0;
-        flex-wrap: wrap;
+        padding-right: 10px;
+        margin-left: auto;
+        --size: 25px;
+        --join: calc(var(--size)/3);
 
-        span {
-            width: 40px;
-            height: 40px;
-            background: black;
-            border: 2px solid var(--accent);
-            border-radius: 100%;
+        .contributor-item {
+            width: calc(var(--size) - var(--join));
+            height: var(--size);
             margin-right: -0%;
-            overflow: hidden;
-            display: flex;
+            display: block;
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover ;
+            .item-main {
+                width: var(--size);
+                height: var(--size);
+                display: block;
+                background: black;
+                border: 2px solid var(--accent);
+                overflow: hidden;
+                transition: 0.4s;
+                cursor: pointer;
+                border-radius: 100%;
+                    
+                &:hover {
+                    transform: scale(1.07);
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
         }
     }
@@ -49,6 +66,12 @@
         overflow: hidden;
         text-overflow: ellipsis;
         width: 100%;
+        cursor: pointer;
+
+
+        &:hover {
+            text-decoration: underline;
+        }
 
 
         h3 {
@@ -63,6 +86,7 @@
             white-space: nowrap;
             display: flex;
             align-items: center;
+            gap: 0.2em;
 
             a {
                 text-decoration: none;
@@ -254,13 +278,17 @@ body {
                     .screen {
                         display: flex;
                         justify-content: center;
-                        min-height: 100%;
                         scroll-snap-align: start;
                         flex-direction: column;
                         align-items: center;
                         width: 100%;
-                        min-height: 100%;
+                        height: 100%;
+                        max-height: 1000px;
                         text-align: center;
+
+                        &.home {
+                            padding-top: 10em;
+                        }
 
 
                         .intro-image {
@@ -364,7 +392,7 @@ body {
                                 display: grid;
                                 padding: 0 2em;
                                 gap: var(--gap);
-                                grid-template-columns: 2fr 1fr 2fr;
+                                grid-template-columns: 1fr 1fr 1fr;
 
                                 .flexx {
                                     display: flex;
@@ -433,7 +461,10 @@ body {
                                     width: 100%;
                                     height: auto;
 
-
+                                    &:hover {
+                                        background: unset;
+                                        border-color: var(--fg-color-4);
+                                    }
                                     .image {
                                         height: 100px;
                                         width: 100%;
@@ -533,7 +564,7 @@ body {
                                         }
 
                                         .btn {
-                                            background: var(--accent);
+                                            //background: var(--accent);
                                             padding: 0.5em 1em;
                                             border-radius: 3px;
                                             text-align: center;
@@ -545,6 +576,9 @@ body {
                                             justify-content: center;
                                             gap: 0.5em;
                                             color: black;
+                                            border: 1px solid var(--fg-color-4);
+                                            background-color: white;
+
 
                                             &.secondary-action {
                                                 background: var(--fg-color-4);

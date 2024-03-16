@@ -15,6 +15,7 @@ $accent: #07ce96;
     --bg-color-2: #{$bg_color_2};
     --accent: #{$accent};
     --accent-opaque: #{transparentize($color: $accent, $amount: 0.7)};
+    --accent-opaque-2: #{transparentize($color: $accent, $amount: 0.9)};
 }
 
 @media (prefers-color-scheme: dark) {
@@ -94,4 +95,4 @@ h6,
 
 @import url(./imports/index.css);
 @import url(./imports/responsive.css);
-@import url(./imports/featured.css);
+@import url(./imports/animations.css);
