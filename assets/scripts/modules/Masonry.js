@@ -1,4 +1,5 @@
 import { ToNode, chunkArray } from "./Helpers.js";
+import Templates from "./Templates.js";
 
 function Masonry(dataset, template, elementQuery = "body", masonify = true) {
 

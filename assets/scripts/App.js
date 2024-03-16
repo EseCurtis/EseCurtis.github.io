@@ -13,6 +13,8 @@ document.body.onload = () => {
     const storedProjects = JSON.parse(localStorage?.getItem("projects") || "[]");
 
     App(storedProjects);
+    
+    Masonry([1,1,1], Templates.project_skeleton, "#projects");
 
     FetchProjects()
         .then(projects => {
@@ -27,5 +29,6 @@ document.body.onload = () => {
 
     Masonry(featured, Templates.featured, "#featured");
 
-    _e("body").style.opacity = 1;
+    _e("#root").style.opacity = 1;
+    _e("#loader").style.display = "none";
 }

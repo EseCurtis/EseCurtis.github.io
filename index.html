@@ -24,11 +24,98 @@
       href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
     />
   </head>
-  <body style="opacity: 0">
-    <div id="root">
+
+  <span id="loader" style="position: fixed; top: 50%; left: 50%; color: #fff; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3em;">
+    <div style="margin-left: 0.5em;"><span class="super">@</span>Ese.szn⚡</div>
+    <svg
+      class="container"
+      x="0px"
+      y="0px"
+      viewBox="0 0 50 31.25"
+      height="31.25"
+      width="50"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <path
+        class="track"
+        stroke-width="4"
+        fill="none"
+        pathlength="100"
+        d="M0.625 21.5 h10.25 l3.75 -5.875 l7.375 15 l9.75 -30 l7.375 20.875 v0 h10.25"
+      />
+      <path
+        class="car"
+        stroke-width="4"
+        fill="none"
+        pathlength="100"
+        d="M0.625 21.5 h10.25 l3.75 -5.875 l7.375 15 l9.75 -30 l7.375 20.875 v0 h10.25"
+      />
+    </svg>
+
+    <style>
+      .container {
+        --uib-size: 45px;
+        --uib-color: var(--accent);
+        --uib-speed: 1.75s;
+        --uib-bg-opacity: 0.1;
+        height: 31.25px;
+        width: 50px;
+        transform-origin: center;
+        overflow: visible;
+      }
+
+      .car {
+        stroke: var(--uib-color);
+        stroke-dasharray: 100;
+        stroke-dashoffset: 0;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        animation: travel var(--uib-speed) ease-in-out infinite,
+          fade var(--uib-speed) ease-out infinite;
+        will-change: stroke-dasharray, stroke-dashoffset;
+        transition: stroke 0.5s ease;
+      }
+
+      .track {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke: var(--fg-color-4);
+        opacity: 1;
+      }
+
+      @keyframes travel {
+        0% {
+          stroke-dashoffset: 100;
+        }
+
+        75% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes fade {
+        0% {
+          opacity: 0;
+        }
+
+        20%,
+        55% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </span>
+  <body>
+    <div id="root" style="opacity: 0">
       <nav class="app--nav">
         <div class="brand">
-          <a href="./" class="brand-text poppins"><span class="super">@</span>Ese.szn⚡</a>
+          <a href="./" class="brand-text poppins"
+            ><span class="super">@</span>Ese.szn⚡</a
+          >
         </div>
 
         <div class="navigator">
@@ -71,11 +158,18 @@
           <div class="screen home">
             <div class="intro-image">
               <div class="image-container">
-                <img src="./assets/images/[hiid.in]tld-8CZ-xRz-5.jpeg" alt=""  title="Ese Curtis"/>
+                <img
+                  src="./assets/images/[hiid.in]tld-8CZ-xRz-5.jpeg"
+                  alt=""
+                  title="Ese Curtis"
+                />
               </div>
             </div>
             <p>Hi, I'm Ese Curtis. 👋🏽</p>
-            <h2>Building <span class="super">digital </span> products, tools, and <span class="super">experiences</span>.</h2>
+            <h2>
+              Building <span class="super">digital </span> products, tools, and
+              <span class="super">experiences</span>.
+            </h2>
 
             <button
               onclick="window.open('https://github.com/esecurtis', '_blank')"
@@ -91,9 +185,7 @@
               <h2><span class="super">#</span>Featured</h2>
             </div>
 
-            <div class="featured" id="featured">
-                
-            </div>
+            <div class="featured" id="featured"></div>
           </div>
           <div class="screen portfolio" id="exp">
             <div class="header">
@@ -102,8 +194,8 @@
             </div>
 
             <div class="projects" id="projects">
-                <div></div>
-                <h2 style="opacity: 0.7; white-space: nowrap;">Cooking! 😉</h2>
+              <div></div>
+              <h2 style="opacity: 0.7; white-space: nowrap">Cooking! 😉</h2>
             </div>
           </div>
         </div>

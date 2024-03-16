@@ -47,6 +47,13 @@ const Templates = {
         </div>
         `
     },
+    project_skeleton: () => {
+       return  `
+        <div class="item skeleton">
+        
+        </div>
+        `
+    },
     featured: async ({ image, title, description, topics, github, preview }) => {
 
         return `

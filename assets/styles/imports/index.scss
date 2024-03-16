@@ -12,6 +12,11 @@
     opacity: 0.7;
     animation: morph-in 0.4s;
 
+    &.skeleton {
+        height: 200px;
+        animation: beep 2s infinite;
+    }
+
     &:hover {
         background: var(--accent-opaque-2);
         border-color: var(--accent-opaque);
