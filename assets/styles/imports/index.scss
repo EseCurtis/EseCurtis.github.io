@@ -297,16 +297,14 @@ body {
 
 
                         .intro-image {
-                            width: 100vw;
-                            height: 100vw;
                             height: 100px;
                             width: 100px;
+                            aspect-ratio: 1/1;
                             border-radius: 100%;
                             margin-bottom: 0.5em;
                             padding: 3px;
                             border: 1px solid var(--fg-color-2);
                             position: relative;
-                            overflow: hidden;
 
                             .image-container {
                                 height: 100%;
