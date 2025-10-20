@@ -16,7 +16,7 @@ FeaturedGenerator.addFeatured({
     title: "StreekApp",
     description: "StreekApp is a health and fitness app for managing new and ongoing habits, also to help stop intrusive bad habits",
     topics: ["HabitTracker", "Health", "Fitness", "ReactJS", "Vite", "Capacitor"],
-    preview: "https://streekapp.vercel.app",
+    preview: "https://streekapp.com",
 
 });
 FeaturedGenerator.addFeatured({
